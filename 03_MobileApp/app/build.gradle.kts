@@ -5,11 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.kiracuchat"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.kiracuchat"
         minSdk = 31
+        //noinspection OldTargetApi,OldTargetApi
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
