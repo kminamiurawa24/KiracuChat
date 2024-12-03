@@ -17,4 +17,18 @@
         android:layout_height="wrap_content"
         android:onClick="buttonOnClick"
         android:text="Button" />
+
+    <Button
+        android:id="@+id/user_option_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ユーザー設定" />
+
+    <Button
+        android:id="@+id/channel_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="チャンネルボタン" />
+
+
 </LinearLayout>
