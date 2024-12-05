@@ -1,43 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".UserOptionActivity"
+    android:background="#BEE9C7">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <!-- コンテンツ -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="#880000" />
+                android:id="@+id/view_top"
+                android:layout_width="413dp"
+                android:layout_height="146dp"
+                android:background="#BEE9C7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="3dp" />
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="32dp"
-                android:background="#008800" />
+                android:id="@+id/view_middle"
+                android:layout_width="408dp"
+                android:layout_height="1576dp"
+                android:layout_marginTop="4dp"
+                android:background="#95EF47"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_top" />
 
             <View
+                android:id="@+id/view_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginTop="32dp"
-                android:background="#000088" />
+                android:background="#BEE9C7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_middle" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="32dp"
-                android:background="#888800" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="44dp"
+                app:layout_constraintBottom_toTopOf="@+id/view_middle"
+                app:layout_constraintEnd_toStartOf="@+id/channel_level"
+                app:layout_constraintHorizontal_bias="0.673"
+                app:layout_constraintStart_toStartOf="@+id/view_top"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.152"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/channel_title"
+                android:layout_width="154dp"
+                android:layout_height="39dp"
+                android:layout_marginBottom="214dp"
+                android:gravity="center"
+                android:text="kiracuチャンネル"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/view_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.801"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/channel_level"
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="206dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="135dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="#FF0000"
+                app:layout_constraintEnd_toEndOf="@+id/view_top"
+                app:layout_constraintStart_toStartOf="@+id/view_top"
+                app:layout_constraintTop_toBottomOf="@+id/channel_title" />
+
+            <TextView
+                android:id="@+id/creat_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="2024/12/04"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.863"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/channel_title" />
+
+            <Button
+                android:id="@+id/back_btn2"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="←"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.924" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/back_btn2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.924" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button3"
+                app:layout_constraintHorizontal_bias="0.842"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view_top"
+                app:layout_constraintVertical_bias="0.924" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/next_btn"
+                app:layout_constraintHorizontal_bias="0.901"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.924" />
+
+            <Button
+                android:id="@+id/next_btn"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="→"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.93"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.924" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </ScrollView>
+
+    </FrameLayout>
 
 </LinearLayout>
