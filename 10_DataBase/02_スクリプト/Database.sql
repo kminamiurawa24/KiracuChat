@@ -1,5 +1,5 @@
 -- =============================================
--- ä¾å­˜é–¢ä¿‚ã‚’è€ƒæ…®ã—ãŸDROPæ–‡
+-- ˆË‘¶ŠÖŒW‚ðl—¶‚µ‚½DROP•¶
 -- =============================================
 DROP TABLE IF EXISTS message;
 DROP TABLE IF EXISTS channel;
@@ -13,121 +13,121 @@ DROP TABLE IF EXISTS [group];
 DROP TABLE IF EXISTS group_admin;
 
 -- =============================================
--- status ãƒ†ãƒ¼ãƒ–ãƒ«
+-- status ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE status (
-    id INT IDENTITY(1,1) PRIMARY KEY, -- ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ID
-    name VARCHAR(30) NOT NULL          -- ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å
+    id INT IDENTITY(1,1) PRIMARY KEY, -- ƒXƒe[ƒ^ƒXID
+    name VARCHAR(30) NOT NULL          -- ƒXƒe[ƒ^ƒX–¼
 );
 
 -- =============================================
--- user_icon ãƒ†ãƒ¼ãƒ–ãƒ«
+-- user_icon ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE user_icon (
-    id INT IDENTITY(1,1) PRIMARY KEY,        -- ã‚¢ã‚¤ã‚³ãƒ³IDï¼ˆè‡ªå‹•ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆï¼‰
-    icon_level INT NOT NULL UNIQUE,          -- ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒ¬ãƒ™ãƒ«ï¼ˆ1, 2, 3...ï¼‰
-    batch_image_url VARCHAR(255) NOT NULL    -- ãƒãƒƒãƒç”»åƒURL
+    id INT IDENTITY(1,1) PRIMARY KEY,        -- ƒAƒCƒRƒ“IDiŽ©“®ƒCƒ“ƒNƒŠƒƒ“ƒgj
+    icon_level INT NOT NULL UNIQUE,          -- ƒ†[ƒU[ƒŒƒxƒ‹i1, 2, 3...j
+    batch_image_url VARCHAR(255) NOT NULL    -- ƒoƒbƒ`‰æ‘œURL
 );
 
 -- =============================================
--- channel_icon_master ãƒ†ãƒ¼ãƒ–ãƒ«
+-- channel_icon_master ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE channel_icon_master (
-    level INT PRIMARY KEY,            -- ãƒ¬ãƒ™ãƒ«
-    image_url VARCHAR(255) NOT NULL   -- ãƒ¬ãƒ™ãƒ«ã«å¿œã˜ãŸã‚¢ã‚¤ã‚³ãƒ³ã®URL
+    level INT PRIMARY KEY,            -- ƒŒƒxƒ‹
+    image_url VARCHAR(255) NOT NULL   -- ƒŒƒxƒ‹‚É‰ž‚¶‚½ƒAƒCƒRƒ“‚ÌURL
 );
 
 -- =============================================
--- user ãƒ†ãƒ¼ãƒ–ãƒ«
+-- user ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE [user] (
-    id INT IDENTITY(1,1) PRIMARY KEY,                        -- ãƒ¦ãƒ¼ã‚¶IDï¼ˆè‡ªå‹•ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆï¼‰
-    login_id VARCHAR(20) NOT NULL,                           -- ãƒ­ã‚°ã‚¤ãƒ³ID
-    password VARCHAR(255) NOT NULL,                          -- ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
-    is_active TINYINT NOT NULL DEFAULT 1,                    -- ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒ•ãƒ©ã‚°
-    create_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, -- ä½œæˆæ—¥æ™‚
-    modified_day DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,-- æ›´æ–°æ—¥æ™‚
-    user_level INT,                                          -- ãƒ¦ãƒ¼ã‚¶ãƒ¬ãƒ™ãƒ«
-    user_icon_id INT,                                        -- ãƒ¦ãƒ¼ã‚¶ã‚¢ã‚¤ã‚³ãƒ³ID
-    is_deleted TINYINT DEFAULT 0,                           -- è«–ç†å‰Šé™¤ãƒ•ãƒ©ã‚°
-    FOREIGN KEY (user_icon_id) REFERENCES user_icon(id)      -- ãƒ¦ãƒ¼ã‚¶ã‚¢ã‚¤ã‚³ãƒ³ã®å¤–éƒ¨ã‚­ãƒ¼
+    id INT IDENTITY(1,1) PRIMARY KEY,                        -- ƒ†[ƒUIDiŽ©“®ƒCƒ“ƒNƒŠƒƒ“ƒgj
+    login_id VARCHAR(20) NOT NULL,                           -- ƒƒOƒCƒ“ID
+    password VARCHAR(255) NOT NULL,                          -- ƒpƒXƒ[ƒh
+    is_active TINYINT NOT NULL DEFAULT 1,                    -- ƒAƒNƒeƒBƒuƒtƒ‰ƒO
+    create_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, -- ì¬“úŽž
+    modified_day DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,-- XV“úŽž
+    user_level INT,                                          -- ƒ†[ƒUƒŒƒxƒ‹
+    user_icon_id INT,                                        -- ƒ†[ƒUƒAƒCƒRƒ“ID
+    is_deleted TINYINT DEFAULT 0,                           -- ˜_—íœƒtƒ‰ƒO
+    FOREIGN KEY (user_icon_id) REFERENCES user_icon(id)      -- ƒ†[ƒUƒAƒCƒRƒ“‚ÌŠO•”ƒL[
 );
 
 -- =============================================
--- user_status ãƒ†ãƒ¼ãƒ–ãƒ«
+-- user_status ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE user_status (
-    id INT IDENTITY(1,1) PRIMARY KEY,                        -- ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ID
-    user_id INT NOT NULL,                                    -- ãƒ¦ãƒ¼ã‚¶ãƒ¼ID
-    status_id INT NOT NULL,                                  -- å®šåž‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ID
-    custom_message VARCHAR(255),                             -- ä»»æ„ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
-    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,  -- æ›´æ–°æ—¥æ™‚
-    FOREIGN KEY (user_id) REFERENCES [user](id),             -- ãƒ¦ãƒ¼ã‚¶ãƒ¼IDã®å¤–éƒ¨ã‚­ãƒ¼
-    FOREIGN KEY (status_id) REFERENCES status(id)            -- ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹IDã®å¤–éƒ¨ã‚­ãƒ¼
+    id INT IDENTITY(1,1) PRIMARY KEY,                        -- ƒ†[ƒU[ƒXƒe[ƒ^ƒXID
+    user_id INT NOT NULL,                                    -- ƒ†[ƒU[ID
+    status_id INT NOT NULL,                                  -- ’èŒ^ƒXƒe[ƒ^ƒXID
+    custom_message VARCHAR(255),                             -- ”CˆÓ‚ÌƒXƒe[ƒ^ƒXƒƒbƒZ[ƒW
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,  -- XV“úŽž
+    FOREIGN KEY (user_id) REFERENCES [user](id),             -- ƒ†[ƒU[ID‚ÌŠO•”ƒL[
+    FOREIGN KEY (status_id) REFERENCES status(id)            -- ƒXƒe[ƒ^ƒXID‚ÌŠO•”ƒL[
 );
 
 -- =============================================
--- user_profile ãƒ†ãƒ¼ãƒ–ãƒ«
+-- user_profile ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE user_profile (
-    id INT IDENTITY(1,1) PRIMARY KEY,          -- ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ID
-    user_id INT NOT NULL,                      -- ãƒ¦ãƒ¼ã‚¶ãƒ¼ID
-    profile_image_url VARCHAR(255),            -- ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ç”»åƒURL
-    bio VARCHAR(255),                          -- è‡ªå·±ç´¹ä»‹æ–‡
-    FOREIGN KEY (user_id) REFERENCES [user](id)-- ãƒ¦ãƒ¼ã‚¶ãƒ¼IDã®å¤–éƒ¨ã‚­ãƒ¼
+    id INT IDENTITY(1,1) PRIMARY KEY,          -- ƒvƒƒtƒB[ƒ‹ID
+    user_id INT NOT NULL,                      -- ƒ†[ƒU[ID
+    profile_image_url VARCHAR(255),            -- ƒvƒƒtƒB[ƒ‹‰æ‘œURL
+    bio VARCHAR(255),                          -- Ž©ŒÈÐ‰î•¶
+    FOREIGN KEY (user_id) REFERENCES [user](id)-- ƒ†[ƒU[ID‚ÌŠO•”ƒL[
 );
 
 -- =============================================
--- group ãƒ†ãƒ¼ãƒ–ãƒ«
+-- group ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE [group] (
-    id INT IDENTITY(1,1) PRIMARY KEY,              -- ã‚°ãƒ«ãƒ¼ãƒ—IDï¼ˆè‡ªå‹•ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆï¼‰
-    name VARCHAR(50) NOT NULL,                     -- ã‚°ãƒ«ãƒ¼ãƒ—å
-    description VARCHAR(255),                      -- ã‚°ãƒ«ãƒ¼ãƒ—èª¬æ˜Ž
-    created_user_id INT NOT NULL,                  -- ä½œæˆè€…ID
-    created_day DATETIME DEFAULT CURRENT_TIMESTAMP,-- ä½œæˆæ—¥
-    modified_day DATETIME DEFAULT CURRENT_TIMESTAMP,-- æ›´æ–°æ—¥
-    FOREIGN KEY (created_user_id) REFERENCES [user](id) -- ä½œæˆè€…IDã®å¤–éƒ¨ã‚­ãƒ¼
+    id INT IDENTITY(1,1) PRIMARY KEY,              -- ƒOƒ‹[ƒvIDiŽ©“®ƒCƒ“ƒNƒŠƒƒ“ƒgj
+    name VARCHAR(50) NOT NULL,                     -- ƒOƒ‹[ƒv–¼
+    description VARCHAR(255),                      -- ƒOƒ‹[ƒvà–¾
+    created_user_id INT NOT NULL,                  -- ì¬ŽÒID
+    created_day DATETIME DEFAULT CURRENT_TIMESTAMP,-- ì¬“ú
+    modified_day DATETIME DEFAULT CURRENT_TIMESTAMP,-- XV“ú
+    FOREIGN KEY (created_user_id) REFERENCES [user](id) -- ì¬ŽÒID‚ÌŠO•”ƒL[
 );
 
 -- =============================================
--- group_admin ãƒ†ãƒ¼ãƒ–ãƒ«
+-- group_admin ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE group_admin (
-    id INT IDENTITY(1,1) PRIMARY KEY,              -- ã‚°ãƒ«ãƒ¼ãƒ—ç®¡ç†è€…ID
-    group_id INT NOT NULL,                         -- ã‚°ãƒ«ãƒ¼ãƒ—ID
-    user_id INT NOT NULL,                          -- ç®¡ç†è€…ãƒ¦ãƒ¼ã‚¶ãƒ¼ID
-    assigned_day DATETIME DEFAULT CURRENT_TIMESTAMP,-- ä»»å‘½æ—¥
-    FOREIGN KEY (group_id) REFERENCES [group](id), -- ã‚°ãƒ«ãƒ¼ãƒ—IDã®å¤–éƒ¨ã‚­ãƒ¼
-    FOREIGN KEY (user_id) REFERENCES [user](id)    -- ãƒ¦ãƒ¼ã‚¶ãƒ¼IDã®å¤–éƒ¨ã‚­ãƒ¼
+    id INT IDENTITY(1,1) PRIMARY KEY,              -- ƒOƒ‹[ƒvŠÇ—ŽÒID
+    group_id INT NOT NULL,                         -- ƒOƒ‹[ƒvID
+    user_id INT NOT NULL,                          -- ŠÇ—ŽÒƒ†[ƒU[ID
+    assigned_day DATETIME DEFAULT CURRENT_TIMESTAMP,-- ”C–½“ú
+    FOREIGN KEY (group_id) REFERENCES [group](id), -- ƒOƒ‹[ƒvID‚ÌŠO•”ƒL[
+    FOREIGN KEY (user_id) REFERENCES [user](id)    -- ƒ†[ƒU[ID‚ÌŠO•”ƒL[
 );
 
 -- =============================================
--- channel ãƒ†ãƒ¼ãƒ–ãƒ«
+-- channel ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE channel (
-    id INT IDENTITY(1,1) PRIMARY KEY,                 -- ãƒãƒ£ãƒ³ãƒãƒ«IDï¼ˆè‡ªå‹•ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆï¼‰
-    group_id INT NOT NULL,                            -- ã‚°ãƒ«ãƒ¼ãƒ—ID
-    title VARCHAR(30) NOT NULL,                       -- ãƒãƒ£ãƒ³ãƒãƒ«å
-    created_user_id INT NOT NULL,                     -- ä½œæˆè€…ID
-    created_day DATETIME DEFAULT CURRENT_TIMESTAMP,   -- ä½œæˆæ—¥
-    modified_day DATETIME DEFAULT CURRENT_TIMESTAMP,  -- æ›´æ–°æ—¥
-    level INT DEFAULT 1,                              -- ãƒãƒ£ãƒ³ãƒãƒ«ãƒ¬ãƒ™ãƒ«ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ1ï¼‰
-    description VARCHAR(80) NOT NULL,                 -- ãƒãƒ£ãƒ³ãƒãƒ«èª¬æ˜Ž
-    FOREIGN KEY (group_id) REFERENCES [group](id),    -- ã‚°ãƒ«ãƒ¼ãƒ—IDã®å¤–éƒ¨ã‚­ãƒ¼
-    FOREIGN KEY (created_user_id) REFERENCES [user](id) -- ä½œæˆè€…IDã®å¤–éƒ¨ã‚­ãƒ¼
+    id INT IDENTITY(1,1) PRIMARY KEY,                 -- ƒ`ƒƒƒ“ƒlƒ‹IDiŽ©“®ƒCƒ“ƒNƒŠƒƒ“ƒgj
+    group_id INT NOT NULL,                            -- ƒOƒ‹[ƒvID
+    title VARCHAR(30) NOT NULL,                       -- ƒ`ƒƒƒ“ƒlƒ‹–¼
+    created_user_id INT NOT NULL,                     -- ì¬ŽÒID
+    created_day DATETIME DEFAULT CURRENT_TIMESTAMP,   -- ì¬“ú
+    modified_day DATETIME DEFAULT CURRENT_TIMESTAMP,  -- XV“ú
+    level INT DEFAULT 1,                              -- ƒ`ƒƒƒ“ƒlƒ‹ƒŒƒxƒ‹iƒfƒtƒHƒ‹ƒg1j
+    description VARCHAR(80) NOT NULL,                 -- ƒ`ƒƒƒ“ƒlƒ‹à–¾
+    FOREIGN KEY (group_id) REFERENCES [group](id),    -- ƒOƒ‹[ƒvID‚ÌŠO•”ƒL[
+    FOREIGN KEY (created_user_id) REFERENCES [user](id) -- ì¬ŽÒID‚ÌŠO•”ƒL[
 );
 -- =============================================
--- message ãƒ†ãƒ¼ãƒ–ãƒ«
+-- message ƒe[ƒuƒ‹
 -- =============================================
 CREATE TABLE message (
-    id INT IDENTITY(1,1) PRIMARY KEY,                -- ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDï¼ˆè‡ªå‹•ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆï¼‰
-    user_id INT NOT NULL,                            -- ãƒ¦ãƒ¼ã‚¶ID
-    handle_name VARCHAR(30),                         -- ãƒãƒ³ãƒ‰ãƒ«ãƒãƒ¼ãƒ 
-    message_no INT IDENTITY(1,1),                    -- ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸Noï¼ˆè‡ªå‹•ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆï¼‰
-    text VARCHAR(255),                               -- ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ†ã‚­ã‚¹ãƒˆ
-    media_url VARCHAR(255),                          -- ãƒ¡ãƒ‡ã‚£ã‚¢URL
-    post_date DATETIME DEFAULT CURRENT_TIMESTAMP,    -- æŠ•ç¨¿æ—¥æ™‚
-    modified_day DATETIME DEFAULT CURRENT_TIMESTAMP, -- æ›´æ–°æ—¥æ™‚
-    FOREIGN KEY (user_id) REFERENCES [user](id)      -- ãƒ¦ãƒ¼ã‚¶IDã®å¤–éƒ¨ã‚­ãƒ¼
+    id INT IDENTITY(1,1) PRIMARY KEY,                -- ƒƒbƒZ[ƒWIDiŽ©“®ƒCƒ“ƒNƒŠƒƒ“ƒgj
+    user_id INT NOT NULL,                            -- ƒ†[ƒUID
+    handle_name VARCHAR(30),                         -- ƒnƒ“ƒhƒ‹ƒl[ƒ€
+    message_no INT,
+    text VARCHAR(255),                               -- ƒƒbƒZ[ƒWƒeƒLƒXƒg
+    media_url VARCHAR(255),                          -- ƒƒfƒBƒAURL
+    post_date DATETIME DEFAULT CURRENT_TIMESTAMP,    -- “Še“úŽž
+    modified_day DATETIME DEFAULT CURRENT_TIMESTAMP, -- XV“úŽž
+    FOREIGN KEY (user_id) REFERENCES [user](id)      -- ƒ†[ƒUID‚ÌŠO•”ƒL[
 );
