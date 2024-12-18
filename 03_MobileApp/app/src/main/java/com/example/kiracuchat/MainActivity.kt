@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
         var response = ""
 
         try {
-            val url = URL("http://192.168.40.125:5088/ConTest/ping")
+            val url = URL("https://192.168.40.125:7287/ConTest/ping")
 
             // 接続先URLへのコネクションを開く
             urlConnection = url.openConnection() as HttpURLConnection
