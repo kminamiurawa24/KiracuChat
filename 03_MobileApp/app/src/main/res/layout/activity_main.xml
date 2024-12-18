@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -29,6 +31,189 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="チャンネルボタン" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <!-- コンテンツ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="413dp"
+            android:layout_height="50dp"
+            android:background="#513E3E"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="3dp" />
+
+        <View
+            android:id="@+id/view_ACTIVE"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#D5DCCA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_top" />
+
+        <View
+            android:id="@+id/view_ACTIVE2"
+            android:layout_width="match_parent"
+            android:layout_height="100sp"
+            android:background="#C3AE8B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_ACTIVE" />
+
+        <View
+            android:id="@+id/view_FAVORITES"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#D5DCCA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_ACTIVE2" />
+
+        <View
+            android:id="@+id/view_FAVORITES2"
+            android:layout_width="match_parent"
+            android:layout_height="100sp"
+            android:background="#C3AE8B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_FAVORITES" />
+
+        <View
+            android:id="@+id/view_CHANNELS"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#D5DCCA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_FAVORITES2" />
+
+        <View
+            android:id="@+id/view_CHANNELS2"
+            android:layout_width="match_parent"
+            android:layout_height="100sp"
+            android:background="#C3AE8B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_CHANNELS" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="128dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Kiracu_chat"
+            android:textColor="#BEE9C7"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="113dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="19dp"
+            android:background="#513E3E"
+            android:text="Log in"
+            android:textColor="#F5F5F5"
+            app:layout_constraintBottom_toBottomOf="@+id/view_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/MOST2"
+            android:layout_width="57dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="15dp"
+            android:text="MOST"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_ACTIVE"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_ACTIVE"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/ACTIVE"
+            android:layout_width="81dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="220dp"
+            android:layout_marginBottom="14dp"
+            android:text="ACTIVE"
+            android:textColor="#FD3333"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_ACTIVE"
+            app:layout_constraintEnd_toEndOf="@+id/view_ACTIVE"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/MOST2"
+            app:layout_constraintTop_toTopOf="@+id/view_ACTIVE"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/view_MY"
+            android:layout_width="33dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="15dp"
+            android:text="MY"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_FAVORITES"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_FAVORITES" />
+
+        <TextView
+            android:id="@+id/FAVORITES"
+            android:layout_width="112dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="224dp"
+            android:layout_marginBottom="14dp"
+            android:text="FAVORITES"
+            android:textColor="#FD3333"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_FAVORITES"
+            app:layout_constraintEnd_toEndOf="@+id/view_FAVORITES"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/view_MY"
+            app:layout_constraintTop_toTopOf="@+id/view_FAVORITES"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/CHANNELS"
+            android:layout_width="113dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="15dp"
+            android:text="CHANNELS"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_CHANNELS"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_CHANNELS"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
 
 
 </LinearLayout>
