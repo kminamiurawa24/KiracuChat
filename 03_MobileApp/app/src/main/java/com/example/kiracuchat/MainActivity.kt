@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
 
             // ヘッダーにUser-AgentとAccept-Languageを設定
             urlConnection.addRequestProperty("User-Agent", "Android")
-            urlConnection.addRequestProperty("Accept-Language","ja-JP" )
+            urlConnection.addRequestProperty("Accept-Language", "ja-JP")
 
             // HTTPメソッドをGETに設定
             urlConnection.requestMethod = "GET"
@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
 
                 // レスポンスボディを行単位で読み取る
                 response = bufferedReader.use { it.readText() }
-            }else{
+            } else {
                 println("Error: Response code $statusCode")
                 return "Error: Response code $statusCode"
             }
@@ -87,10 +87,6 @@ class MainActivity : ComponentActivity() {
             urlConnection?.disconnect()
             inputStream?.close()
         }
-
         return response
     }
-
-
-
 }
