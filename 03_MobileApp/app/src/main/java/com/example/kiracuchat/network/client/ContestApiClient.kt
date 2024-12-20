@@ -1,5 +1,6 @@
 package com.example.kiracuchat.network.client
 
+import android.util.Log
 import com.example.kiracuchat.model.PingRes
 import com.example.kiracuchat.network.service.ContestService
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +23,7 @@ class ContestApiClient {
                 service.ping()
             } catch (e: Exception) {
                 // エラー処理
+                Log.e("ContestApiClient", "ping() failed: ${e.message}", e) // エラーメッセージをログ出力
                 null
             }
         }
