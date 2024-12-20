@@ -2,28 +2,32 @@ package com.example.kiracuchat.network.client
 
 import android.util.Log
 import com.example.kiracuchat.model.PingRes
+import com.example.kiracuchat.network.base.ApiProvider
+import com.example.kiracuchat.network.base.BaseApiClient
 import com.example.kiracuchat.network.service.ContestService
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import okhttp3.Request
+import retrofit2.Response
+import java.io.IOException
 
 class ContestApiClient {
 
-    private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("https://192.168.40.125:7287/") // ベースURLを設定
-        .addConverterFactory(GsonConverterFactory.create()) // GsonConverterFactoryを追加
-        .build()
-
-    private val service: ContestService = retrofit.create(ContestService::class.java)
+    private val service: ContestService = ApiProvider.createService(ContestService::class.java)
 
     suspend fun ping(): PingRes? {
         return withContext(Dispatchers.IO) {
             try {
-                service.ping()
+                val response: Response<PingRes> = service.ping() // ContestServiceのping()関数を呼び出す
+                if (response.isSuccessful) {
+                    response.body() // レスポンスボディを取得
+                } else {
+                    Log.e("ContestApiClient", "ping() failed: ${response.code()} ${response.message()}")
+                    null
+                }
             } catch (e: Exception) {
-                // エラー処理
-                Log.e("ContestApiClient", "ping() failed: ${e.message}", e) // エラーメッセージをログ出力
+                Log.e("ContestApiClient", "ping() failed: ${e.message}", e)
                 null
             }
         }
