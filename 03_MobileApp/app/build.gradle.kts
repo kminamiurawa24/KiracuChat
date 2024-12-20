@@ -51,6 +51,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.okhttp) // OkHttpの依存関係を追加
+    implementation(libs.logging.interceptor) // ロギングインターセプターの依存関係
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
