@@ -1,10 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    kotlin("plugin.serialization") version "1.9.0"
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.plugin.serialization") // これが追加部分！ または id("kotlinx-serialization")
 }
 
 android {
@@ -52,16 +48,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    repositories {
-        google()
-        mavenCentral()
-    }
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
-    implementation("com.squareup.retrofit2:retrofit")
-    implementation("com.squareup.retrofit2:converter-kotlinx-serialization")
+    implementation(libs.retrofit2.retrofit)
+    implementation(libs.converter.gson)
     implementation(libs.okhttp) // Optional, for OkHttp customization
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.core.ktx)
