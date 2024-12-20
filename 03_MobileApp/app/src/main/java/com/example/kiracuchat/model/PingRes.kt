@@ -1,6 +1,6 @@
 package com.example.kiracuchat.model
 
-data class PongRes(
+data class PingRes(
     val message: String,
     val timestamp: String
 )
