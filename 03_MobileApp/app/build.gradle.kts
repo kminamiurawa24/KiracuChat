@@ -51,6 +51,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.retrofit) // Retrofitの依存関係を追加
+    implementation(libs.converter.gson) // GsonConverterFactoryの依存関係も追加
     implementation(libs.okhttp) // OkHttpの依存関係を追加
     implementation(libs.logging.interceptor) // ロギングインターセプターの依存関係
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
