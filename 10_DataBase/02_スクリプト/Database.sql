@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS channel;
 DROP TABLE IF EXISTS user_profile;
 DROP TABLE IF EXISTS user_status;
 DROP TABLE IF EXISTS [user];
+DROP TABLE IF EXISTS refresh_token;
 DROP TABLE IF EXISTS channel_icon_master;
 DROP TABLE IF EXISTS user_icon;
 DROP TABLE IF EXISTS status;
@@ -75,6 +76,18 @@ CREATE TABLE user_profile (
     profile_image_url VARCHAR(255),            -- プロフィール画像URL
     bio VARCHAR(255),                          -- 自己紹介文
     FOREIGN KEY (user_id) REFERENCES [user](id)-- ユーザーIDの外部キー
+);
+
+-- =============================================
+-- refresh_token テーブル
+-- =============================================
+CREATE TABLE refresh_token (
+    id INT IDENTITY(1,1) PRIMARY KEY,    -- リフレッシュトークンID
+    user_id INT NOT NULL,                -- ユーザーID
+    token VARCHAR(255) NOT NULL,         -- リフレッシュトークン
+    expiry_date DATETIME NOT NULL,       -- 有効期限
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP, -- 作成日時
+    FOREIGN KEY (user_id) REFERENCES [user](id)    -- ユーザーIDの外部キー
 );
 
 -- =============================================
