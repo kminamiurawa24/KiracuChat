@@ -1,5 +1,7 @@
-﻿using KiracuFlyerAPI.Model;
+﻿using KiracuFlyerAPI.DBContext;
+using KiracuFlyerAPI.Model;
 using KiracuFlyerAPI.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace KiracuFlyerAPI.Repository
 {
