@@ -5,11 +5,11 @@ DROP TABLE IF EXISTS message;
 DROP TABLE IF EXISTS channel;
 DROP TABLE IF EXISTS user_profile;
 DROP TABLE IF EXISTS user_status;
-DROP TABLE IF EXISTS [user];
 DROP TABLE IF EXISTS refresh_token;
 DROP TABLE IF EXISTS channel_icon_master;
 DROP TABLE IF EXISTS user_icon;
 DROP TABLE IF EXISTS status;
+DROP TABLE IF EXISTS [user];
 DROP TABLE IF EXISTS [group];
 DROP TABLE IF EXISTS group_admin;
 

@@ -1,9 +1,15 @@
-﻿namespace KiracuFlyerAPI.Model
+﻿using System;
+using System.Collections.Generic;
+
+namespace KiracuFlyerAPI.Model;
+
+public partial class UserIcon
 {
-    public class UserIcon
-    {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public string? ImageUrl { get; set; }
-    }
+    public int Id { get; set; }
+
+    public int IconLevel { get; set; }
+
+    public string BatchImageUrl { get; set; } = null!;
+
+    public virtual ICollection<User> Users { get; set; } = new List<User>();
 }
