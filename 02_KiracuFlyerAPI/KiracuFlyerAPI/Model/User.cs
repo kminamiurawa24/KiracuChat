@@ -12,5 +12,10 @@
         public DateTime? CreateDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public int UserLevel {  get; set; }
+
+        public UserStatus? Status { get; set; }
+        public UserBatch? Batch { get; set; }
+        public UserIcon? Icon { get; set; }
+        public UserProfile? Profile { get; set; }
     }
 }

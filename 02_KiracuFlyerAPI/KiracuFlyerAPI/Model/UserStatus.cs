@@ -7,5 +7,6 @@
         public int StatusId { get; set; }
         public string? CustomMessage { get; set; }
         public DateTime? UpdateDate { get; set; }
+        public StatusMaster? Master { get; set; }
     }
 }
