@@ -1,9 +1,11 @@
 package com.example.kiracuchat
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.kiracuchat.network.client.ContestApiClient
@@ -50,6 +52,14 @@ class MainActivity : ComponentActivity() {
                     textView.text = "ping() failed"
                 }
             }
+        }
+        //トーストボタン
+        val btn1: Button = findViewById(R.id.button2)
+        btn1.setOnClickListener {
+            val context: Context = applicationContext
+            val text = "トーストが表示されました。"
+            val duration = Toast.LENGTH_SHORT
+            Toast.makeText(context, text, duration).show()
         }
     }
 }
