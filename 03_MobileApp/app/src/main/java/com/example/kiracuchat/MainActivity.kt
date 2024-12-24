@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.kiracuchat.network.client.ContestApiClient
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -34,8 +35,30 @@ class MainActivity : ComponentActivity() {
         channelBtn.setOnClickListener {
             startActivity(Intent(this, channel::class.java))
         }
-
+        CoroutineScope(Dispatchers.IO).launch {
+            val result = fetchDataFromServer()
+            withContext(Dispatchers.Main){
+                showToast(result)
+            }
+        }
     }
+    private suspend fun fetchDataFromServer():String{
+        return try{
+            val url = URL("")
+            val connection = url.openConnection() as HttpURLConnection
+            connection.requestMethod = "GET"
+            connection.connect()
+
+            if (connection.responseCode == HttpURLConnection.HTTP_OK) {
+                "通信成功"
+            } else {
+                "通信失敗: ${connection.responseCode}"
+            }
+        } catch (e: Exception) {
+            "通信エラー: ${e.message}"
+            }
+    }
+
 
     fun buttonOnClick(view: View){ // ①クリック時の処理を追加
         val textView: TextView = findViewById(R.id.textView)
@@ -53,13 +76,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        //トーストボタン
-        val btn1: Button = findViewById(R.id.button2)
-        btn1.setOnClickListener {
-            val context: Context = applicationContext
-            val text = "トーストが表示されました。"
-            val duration = Toast.LENGTH_SHORT
-            Toast.makeText(context, text, duration).show()
-        }
+
+    }
+    private fun showToast(message: String){
+        val context: Context = applicationContext
+        val duration = Toast.LENGTH_SHORT
+        Toast.makeText(context, message, duration).show()
     }
 }
