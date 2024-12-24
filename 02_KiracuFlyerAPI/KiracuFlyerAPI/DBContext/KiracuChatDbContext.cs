@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using KiracuFlyerAPI.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace KiracuFlyerAPI.Model;
+namespace KiracuFlyerAPI.DBContext;
 
 public partial class KiracuChatDbContext : DbContext
 {
