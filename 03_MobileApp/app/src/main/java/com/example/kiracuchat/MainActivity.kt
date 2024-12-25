@@ -22,6 +22,7 @@ import java.net.URL
 
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -44,40 +45,38 @@ class MainActivity : ComponentActivity() {
     }
     private suspend fun fetchDataFromServer():String{
         return try{
-            val url = URL("")
-            val connection = url.openConnection() as HttpURLConnection
-            connection.requestMethod = "GET"
-            connection.connect()
+            val contestApiClient = ContestApiClient()
+            val pingResponse = contestApiClient.ping()
 
-            if (connection.responseCode == HttpURLConnection.HTTP_OK) {
+            if (pingResponse == HttpURLConnection.HTTP_OK) {
                 "通信成功"
             } else {
-                "通信失敗: ${connection.responseCode}"
+                "通信失敗: ${pingResponse}"
             }
-        } catch (e: Exception) {
+            } catch (e: Exception) {
             "通信エラー: ${e.message}"
             }
     }
 
-
-    fun buttonOnClick(view: View){ // ①クリック時の処理を追加
-        val textView: TextView = findViewById(R.id.textView)
-        textView.text = "";
-
-        lifecycleScope.launch(Dispatchers.IO) {  // ②コルーチンで非同期処理
-            val contestApiClient = ContestApiClient()
-            val pingResponse = contestApiClient.ping()
-
-            withContext(Dispatchers.Main) {  // ③UIスレッドで結果を反映
-                if (pingResponse != null) {
-                    textView.text = "ping() success: ${pingResponse.message}"
-                } else {
-                    textView.text = "ping() failed"
-                }
-            }
-        }
-
-    }
+//
+//    fun buttonOnClick(view: View){ // ①クリック時の処理を追加
+//        val textView: TextView = findViewById(R.id.textView)
+//        textView.text = "";
+//
+//        lifecycleScope.launch(Dispatchers.IO) {  // ②コルーチンで非同期処理
+//            val contestApiClient = ContestApiClient()
+//            val pingResponse = contestApiClient.ping()
+//
+//            withContext(Dispatchers.Main) {  // ③UIスレッドで結果を反映
+//                if (pingResponse != null) {
+//                    textView.text = "ping() success: ${pingResponse.message}"
+//                } else {
+//                    textView.text = "ping() failed"
+//                }
+//            }
+//        }
+//
+//    }
     private fun showToast(message: String){
         val context: Context = applicationContext
         val duration = Toast.LENGTH_SHORT
