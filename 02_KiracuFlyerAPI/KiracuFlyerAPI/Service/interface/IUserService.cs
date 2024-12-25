@@ -1,4 +1,5 @@
 ﻿using KiracuFlyerAPI.Model;
+using KiracuFlyerAPI.Request;
 using KiracuFlyerAPI.Service;
 
 namespace KiracuFlyerAPI.Service.Interface
@@ -9,5 +10,7 @@ namespace KiracuFlyerAPI.Service.Interface
         Task<User> CreateUserAsync(User user);
         Task UpdateUserAsync(User user);
         Task DeleteUserAsync(int id);
+        Task<User> AuthenticateUserAsync(LoginRequest loginRequest); // メソッドのシグネチャを追加
+
     }
 }

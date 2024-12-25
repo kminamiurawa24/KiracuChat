@@ -1,5 +1,6 @@
 ﻿using KiracuFlyerAPI.Auth;
 using KiracuFlyerAPI.Model;
+using KiracuFlyerAPI.Request;
 using KiracuFlyerAPI.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -52,6 +53,19 @@ namespace KiracuFlyerAPI.Controllers
         {
             await _userService.DeleteUserAsync(id);
             return NoContent();
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginRequest request)
+        {
+            var user = await _userService.AuthenticateUserAsync(request);
+            if (user == null)
+            {
+                return Unauthorized(); // 認証失敗
+            }
+
+            var token = _jwtTokenGenerator.GenerateToken(user); // トークンを生成
+            return Ok(new { User = user, Token = token }); // ユーザー情報とトークンを返す        }
         }
     }
 }
