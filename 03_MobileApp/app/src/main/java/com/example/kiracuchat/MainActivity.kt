@@ -43,40 +43,22 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
     private suspend fun fetchDataFromServer():String{
         return try{
             val contestApiClient = ContestApiClient()
             val pingResponse = contestApiClient.ping()
 
-            if (pingResponse == HttpURLConnection.HTTP_OK) {
-                "通信成功"
+            if (pingResponse != null) {
+                "サーバとの接続に成功しました。"
             } else {
-                "通信失敗: ${pingResponse}"
+                "サーバとの接続に失敗しました。: ${pingResponse}"
             }
             } catch (e: Exception) {
-            "通信エラー: ${e.message}"
-            }
+                "サーバとの接続に失敗しました。: ${e.message}"
+        }
     }
 
-//
-//    fun buttonOnClick(view: View){ // ①クリック時の処理を追加
-//        val textView: TextView = findViewById(R.id.textView)
-//        textView.text = "";
-//
-//        lifecycleScope.launch(Dispatchers.IO) {  // ②コルーチンで非同期処理
-//            val contestApiClient = ContestApiClient()
-//            val pingResponse = contestApiClient.ping()
-//
-//            withContext(Dispatchers.Main) {  // ③UIスレッドで結果を反映
-//                if (pingResponse != null) {
-//                    textView.text = "ping() success: ${pingResponse.message}"
-//                } else {
-//                    textView.text = "ping() failed"
-//                }
-//            }
-//        }
-//
-//    }
     private fun showToast(message: String){
         val context: Context = applicationContext
         val duration = Toast.LENGTH_SHORT
