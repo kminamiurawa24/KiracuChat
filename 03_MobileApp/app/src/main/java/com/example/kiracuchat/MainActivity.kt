@@ -1,10 +1,18 @@
 package com.example.kiracuchat
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.kiracuchat.network.client.ContestApiClient
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
@@ -14,6 +22,7 @@ import java.net.URL
 
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,70 +36,32 @@ class MainActivity : ComponentActivity() {
         channelBtn.setOnClickListener {
             startActivity(Intent(this, channel::class.java))
         }
-
-    }
-
-
-    fun buttonOnClick(view: View){ // ①クリック時の処理を追加
-        var response = getAPI()
-        val textView: TextView = findViewById(R.id.textView)
-        textView.text = response
-    }
-
-    fun getAPI(): String {
-        var urlConnection: HttpURLConnection? = null
-        var inputStream: InputStream? = null
-        var response = ""
-
-        try {
-            val url = URL("https://192.168.40.125:7287/ConTest/ping")
-
-            // 接続先URLへのコネクションを開く
-            urlConnection = url.openConnection() as HttpURLConnection
-
-            // 接続タイムアウトとレスポンスタイムアウトを設定
-            urlConnection.connectTimeout = 10000  // 10秒
-            urlConnection.readTimeout = 10000     // 10秒
-
-            // ヘッダーにUser-AgentとAccept-Languageを設定
-            urlConnection.addRequestProperty("User-Agent", "Android")
-            urlConnection.addRequestProperty("Accept-Language","ja-JP" )
-
-            // HTTPメソッドをGETに設定
-            urlConnection.requestMethod = "GET"
-            urlConnection.doOutput = false
-            urlConnection.doInput = true
-
-            // 接続を開始
-            urlConnection.connect()
-
-            // レスポンスコードを取得
-            val statusCode = urlConnection.responseCode
-
-            // レスポンスコードが200ならレスポンスを読み取る
-            if (statusCode == 200) {
-                // ストリームを使ってレスポンスを読み取る
-                inputStream = urlConnection.inputStream
-                val bufferedReader = BufferedReader(InputStreamReader(inputStream, "UTF-8"))
-
-                // レスポンスボディを行単位で読み取る
-                response = bufferedReader.use { it.readText() }
-            }else{
-                println("Error: Response code $statusCode")
-                return "Error: Response code $statusCode"
+        CoroutineScope(Dispatchers.IO).launch {
+            val result = fetchDataFromServer()
+            withContext(Dispatchers.Main){
+                showToast(result)
             }
-        } catch (e: IOException) {
-            e.printStackTrace()
-            return e.message.toString()
-        } finally {
-            // リソースを適切に解放
-            urlConnection?.disconnect()
-            inputStream?.close()
         }
-
-        return response
     }
 
+    private suspend fun fetchDataFromServer():String{
+        return try{
+            val contestApiClient = ContestApiClient()
+            val pingResponse = contestApiClient.ping()
 
+            if (pingResponse != null) {
+                "サーバとの接続に成功しました。"
+            } else {
+                "サーバとの接続に失敗しました。: ${pingResponse}"
+            }
+            } catch (e: Exception) {
+                "サーバとの接続に失敗しました。: ${e.message}"
+        }
+    }
 
+    private fun showToast(message: String){
+        val context: Context = applicationContext
+        val duration = Toast.LENGTH_SHORT
+        Toast.makeText(context, message, duration).show()
+    }
 }
