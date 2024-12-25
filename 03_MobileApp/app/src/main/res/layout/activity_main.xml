@@ -13,12 +13,6 @@
         android:layout_height="118dp"
         android:text="response" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="buttonOnClick"
-        android:text="Button" />
 
     <Button
         android:id="@+id/user_option_btn"
@@ -119,7 +113,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/Log_in_btn"
             android:layout_width="113dp"
             android:layout_height="30dp"
             android:layout_marginBottom="19dp"
