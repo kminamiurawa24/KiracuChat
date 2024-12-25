@@ -1,4 +1,5 @@
-﻿using KiracuFlyerAPI.Model;
+﻿using KiracuFlyerAPI.Auth;
+using KiracuFlyerAPI.Model;
 using KiracuFlyerAPI.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,12 @@ namespace KiracuFlyerAPI.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly JwtTokenGenerator _jwtTokenGenerator;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, JwtTokenGenerator jwtTokenGenerator)
         {
             _userService = userService;
+            _jwtTokenGenerator = jwtTokenGenerator;
         }
 
         [HttpGet("{id}")]
