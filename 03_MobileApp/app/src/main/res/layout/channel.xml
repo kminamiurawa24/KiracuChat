@@ -71,6 +71,18 @@
                 app:layout_constraintStart_toStartOf="@+id/view_top"
                 app:layout_constraintTop_toTopOf="@+id/view_middle1"
                 app:srcCompat="@drawable/ic_launcher_foreground" />
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="128dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Kirack"
+                android:gravity="center_horizontal"
+                android:textColor="#BEE9C7"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/channel_title"

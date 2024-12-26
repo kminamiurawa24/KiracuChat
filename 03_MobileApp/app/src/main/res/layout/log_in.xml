@@ -1,6 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="413dp"
+        android:layout_height="50dp"
+        android:background="#513E3E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <View
+        android:id="@+id/view_ACTIVE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#D1E9D6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_top" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="128dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Kirack"
+        android:gravity="center_horizontal"
+        android:textColor="#BEE9C7"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="290dp"
+        android:layout_height="58dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="タップして入力"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="169dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="290dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="322dp" />
+
+    <Button
+        android:id="@+id/user_log_in_btn"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="296dp"
+        android:background="#C3AE8B"
+        android:text="Log In"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="62dp" />
+
+    <TextView
+        android:id="@+id/user_id_text"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:text="ユーザーID"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <TextView
+        android:id="@+id/password_text"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:text="パスワード"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <TextView
+        android:id="@+id/password_long_text"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:text="※パスワードが間違っています"
+        android:textStyle="bold"
+        android:textColor="#FF3030"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <TextView
+        android:id="@+id/touroku_text"
+        android:layout_width="153dp"
+        android:layout_height="20dp"
+        android:text="まだ登録してない人は"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="489dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:text="Sign up"
+        android:textColor="#3A96FF"
+        android:background="#D1E9D6"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="527dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
