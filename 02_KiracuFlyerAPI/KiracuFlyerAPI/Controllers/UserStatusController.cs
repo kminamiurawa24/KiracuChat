@@ -11,12 +11,12 @@ namespace KiracuFlyerAPI.Controllers
     public class UserStatusController : ControllerBase
     {
         private readonly IUserStatusService _userStatusService;
-        private readonly IStatusService _statusMasterService;
+        private readonly IStatusService _statusService;
 
         public UserStatusController(IUserStatusService userStatusService, IStatusService statusMasterService)
         {
             _userStatusService = userStatusService;
-            _statusMasterService = statusMasterService;
+            _statusService = statusMasterService;
         }
 
         [HttpGet]
@@ -31,7 +31,7 @@ namespace KiracuFlyerAPI.Controllers
             }
 
             // ステータスIDに対応するステータス名を取得
-            var statusMaster = await _statusMasterService.GetByIdAsync(userStatus.StatusId);
+            var statusMaster = await _statusService.GetByIdAsync(userStatus.StatusId);
 
             if (statusMaster == null)
             {
@@ -43,7 +43,7 @@ namespace KiracuFlyerAPI.Controllers
             {
                 UserId = userStatus.UserId,
                 StatusId = userStatus.StatusId,
-                StatusName = statusMaster.Status,
+                StatusName = statusMaster.Name,
                 CustomMessage = userStatus.CustomMessage,
                 UpdatedAt = userStatus.UpdatedAt
             };
@@ -55,7 +55,7 @@ namespace KiracuFlyerAPI.Controllers
         public async Task<IActionResult> UpdateStatus(int userId, UpdateUserStatusRequest request)
         {
             // ステータスIDが有効かどうかを確認
-            var statusMaster = await _statusMasterService.GetByIdAsync(request.StatusId);
+            var statusMaster = await _statusService.GetByIdAsync(request.StatusId);
 
             if (statusMaster == null)
             {

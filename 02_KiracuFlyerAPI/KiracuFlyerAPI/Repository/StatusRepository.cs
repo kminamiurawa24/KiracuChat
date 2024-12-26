@@ -5,21 +5,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KiracuFlyerAPI.Repository
 {
-    public class StatusMasterRepository : IStatusMasterRepository
+    public class StatusRepository : IStatusRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public StatusMasterRepository(ApplicationDbContext context)
+        public StatusRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<List<StatusMaster>> GetAllAsync()
+        public async Task<List<Status>> GetAllAsync()
         {
             return await _context.StatusMasters.ToListAsync();
         }
 
-        public async Task<StatusMaster?> GetByIdAsync(int id)
+        public async Task<Status?> GetByIdAsync(int id)
         {
             return await _context.StatusMasters.FirstOrDefaultAsync(s => s.Id == id);
         }

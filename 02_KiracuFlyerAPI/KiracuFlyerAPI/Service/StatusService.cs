@@ -9,19 +9,19 @@ namespace KiracuFlyerAPI.Service
 {
     public class StatusService : IStatusService
     {
-        private readonly IStatusMasterRepository _statusMasterRepository;
+        private readonly IStatusRepository _statusMasterRepository;
 
-        public StatusService(IStatusMasterRepository statusMasterRepository)
+        public StatusService(IStatusRepository statusMasterRepository)
         {
             _statusMasterRepository = statusMasterRepository;
         }
 
-        public async Task<List<StatusMaster>> GetAllAsync()
+        public async Task<List<Status>> GetAllAsync()
         {
             return await _statusMasterRepository.GetAllAsync();
         }
 
-        public async Task<StatusMaster?> GetByIdAsync(int statusId)
+        public async Task<Status?> GetByIdAsync(int statusId)
         {
             return await _statusMasterRepository.GetByIdAsync(statusId);
         }

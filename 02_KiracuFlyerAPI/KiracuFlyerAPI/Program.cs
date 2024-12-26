@@ -24,7 +24,7 @@ internal class Program
         builder.Services.AddScoped<JwtTokenGenerator>();
         // リポジトリの登録
         builder.Services.AddScoped<IUserStatusRepository, UserStatusRepository>();
-        builder.Services.AddScoped<IStatusMasterRepository, StatusMasterRepository>();
+        builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 
         // サービスの登録
         builder.Services.AddScoped<IUserService, UserService>();

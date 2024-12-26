@@ -4,7 +4,7 @@ namespace KiracuFlyerAPI.Service.Interface
 {
     public interface IStatusService
     {
-        Task<List<StatusMaster>> GetAllAsync();
-        Task<StatusMaster?> GetByIdAsync(int statusId);
+        Task<List<Status>> GetAllAsync();
+        Task<Status?> GetByIdAsync(int statusId);
     }
 }
