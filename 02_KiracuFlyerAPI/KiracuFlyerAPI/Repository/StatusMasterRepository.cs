@@ -18,5 +18,10 @@ namespace KiracuFlyerAPI.Repository
         {
             return await _context.StatusMasters.ToListAsync();
         }
+
+        public async Task<StatusMaster?> GetByIdAsync(int id)
+        {
+            return await _context.StatusMasters.FirstOrDefaultAsync(s => s.Id == id);
+        }
     }
 }

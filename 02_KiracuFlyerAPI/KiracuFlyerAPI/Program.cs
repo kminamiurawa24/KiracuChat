@@ -3,6 +3,8 @@ using KiracuFlyerAPI.Repository.Interface;
 using KiracuFlyerAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 using KiracuFlyerAPI.Auth;
+using KiracuFlyerAPI.Service.Interface;
+using KiracuFlyerAPI.Service;
 
 internal class Program
 {
@@ -20,7 +22,16 @@ internal class Program
         // リポジトリとサービスを注入
         builder.Services.AddScoped<IUserRepository, UserRepository>();
         builder.Services.AddScoped<JwtTokenGenerator>();
+        // リポジトリの登録
+        builder.Services.AddScoped<IUserStatusRepository, UserStatusRepository>();
+        builder.Services.AddScoped<IStatusMasterRepository, StatusMasterRepository>();
+
+        // サービスの登録
+        builder.Services.AddScoped<IUserService, UserService>();
+        builder.Services.AddScoped<IUserStatusService, UserStatusService>();
+        builder.Services.AddScoped<IStatusService, StatusService>();
         builder.Services.AddControllers();
+
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();

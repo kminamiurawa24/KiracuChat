@@ -1,6 +1,7 @@
 ﻿using KiracuFlyerAPI.Auth;
 using KiracuFlyerAPI.Model;
 using KiracuFlyerAPI.Request;
+using KiracuFlyerAPI.Service;
 using KiracuFlyerAPI.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 

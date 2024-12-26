@@ -14,30 +14,26 @@ namespace KiracuFlyerAPI.Repository
             _context = context;
         }
 
-        public async Task UpsertAsync(UserStatus userStatus)
-        {
-            var existingStatus = await _context.UserStatuses
-                .FirstOrDefaultAsync(s => s.UserId == userStatus.UserId);
-
-            if (existingStatus == null)
-            {
-                // 存在しない場合は新規登録
-                _context.UserStatuses.Add(userStatus);
-            }
-            else
-            {
-                // 存在する場合は更新
-                existingStatus.StatusId = userStatus.StatusId;
-                existingStatus.CustomMessage = userStatus.CustomMessage;
-                existingStatus.UpdatedAt = userStatus.UpdatedAt;
-            }
-
-            await _context.SaveChangesAsync();
-        }
-
         public async Task<UserStatus?> GetByIdAsync(int id)
         {
             return await _context.UserStatuses.FindAsync(id);
+        }
+
+        public async Task AddAsync(UserStatus userStatus)
+        {
+            _context.UserStatuses.Add(userStatus);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<UserStatus?> GetByUserIdAsync(int userId)
+        {
+            return await _context.UserStatuses.FirstOrDefaultAsync(us => us.UserId == userId);
+        }
+
+        public async Task UpdateAsync(UserStatus userStatus)
+        {
+            _context.UserStatuses.Update(userStatus);
+            await _context.SaveChangesAsync();
         }
     }
 }

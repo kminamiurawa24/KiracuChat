@@ -1,10 +1,13 @@
 ﻿using KiracuFlyerAPI.Model;
+using KiracuFlyerAPI.Repository;
 using KiracuFlyerAPI.Repository.Interface;
+using KiracuFlyerAPI.Request;
+using KiracuFlyerAPI.Service.Interface;
 using Microsoft.CodeAnalysis.Scripting;
 
 namespace KiracuFlyerAPI.Service
 {
-    public class UserService
+    public class UserService:IUserService
     {
         private readonly IUserRepository _userRepository;
 
@@ -36,10 +39,10 @@ namespace KiracuFlyerAPI.Service
             await _userRepository.DeleteAsync(id);
         }
 
-        public async Task<User> AuthenticateUserAsync(string loginId, string password)
+        public async Task<User> AuthenticateUserAsync(LoginRequest loginRequest)
         {
-            var user = await _userRepository.GetByLoginIdAsync(loginId);
-            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password)) // パスワードの検証
+            var user = await _userRepository.GetByLoginIdAsync(loginRequest.LoginId);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(loginRequest.Password,user.Password)) // パスワードの検証
             {
                 return null; // 認証失敗
             }

@@ -1,4 +1,5 @@
 ﻿using KiracuFlyerAPI.Model;
+using KiracuFlyerAPI.Service;
 using KiracuFlyerAPI.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 
