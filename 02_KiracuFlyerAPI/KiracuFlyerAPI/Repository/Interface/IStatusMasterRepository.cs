@@ -1,6 +1,9 @@
-﻿namespace KiracuFlyerAPI.Repository.Interface
+﻿using KiracuFlyerAPI.Model;
+
+namespace KiracuFlyerAPI.Repository.Interface
 {
     public interface IStatusMasterRepository
     {
+        Task<List<StatusMaster>> GetAllAsync();
     }
 }
