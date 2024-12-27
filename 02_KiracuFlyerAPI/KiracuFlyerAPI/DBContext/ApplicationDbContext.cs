@@ -7,6 +7,7 @@ namespace KiracuFlyerAPI.DBContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<UserStatus> UserStatuses { get; internal set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Status> Statuses { get; internal set; }
         public DbSet<UserIcon> UserIcons { get; set; }
         public DbSet<ChannelIconMaster> ChannelIconMasters { get; set; }
