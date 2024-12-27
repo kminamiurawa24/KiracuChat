@@ -19,7 +19,7 @@
         android:id="@+id/view_ACTIVE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#D1E9D6"
+        android:background="#BEE9C7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -140,7 +140,7 @@
         android:layout_height="16dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="474dp"
-        android:background="#D1E9D6"
+        android:background="#BEE9C7"
         android:text="Sign up"
         android:textColor="#3A96FF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -150,5 +150,19 @@
         app:layout_constraintTop_toTopOf="@+id/view_ACTIVE"
         app:layout_constraintVertical_bias="0.127" />
 
+    <Button
+        android:id="@+id/back_to_channel_from_log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:background="#BEE9C7"
+        android:text="←back"
+        android:textColor="#C3AE8B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.877" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
