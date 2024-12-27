@@ -20,16 +20,18 @@ internal class Program
             options.UseSqlServer(connectionString)); // SQL Server を使う場合
 
         // リポジトリとサービスを注入
-        builder.Services.AddScoped<IUserRepository, UserRepository>();
         builder.Services.AddScoped<JwtTokenGenerator>();
         // リポジトリの登録
+        builder.Services.AddScoped<IUserRepository, UserRepository>();
         builder.Services.AddScoped<IUserStatusRepository, UserStatusRepository>();
         builder.Services.AddScoped<IStatusRepository, StatusRepository>();
+        builder.Services.AddScoped<IUserIconRepository, UserIconRepository>();
 
         // サービスの登録
         builder.Services.AddScoped<IUserService, UserService>();
         builder.Services.AddScoped<IUserStatusService, UserStatusService>();
         builder.Services.AddScoped<IStatusService, StatusService>();
+        builder.Services.AddScoped<IUserIconService, UserIconService>();
         builder.Services.AddControllers();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
