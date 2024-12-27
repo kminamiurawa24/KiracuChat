@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using KiracuFlyerAPI.Auth;
 using KiracuFlyerAPI.Service.Interface;
 using KiracuFlyerAPI.Service;
+using System.Threading.RateLimiting;
 
 internal class Program
 {
@@ -27,6 +28,7 @@ internal class Program
         builder.Services.AddScoped<IStatusRepository, StatusRepository>();
         builder.Services.AddScoped<IUserIconRepository, UserIconRepository>();
         builder.Services.AddScoped<IChannelIconMasterRepository, ChannelIconMasterRepository>();
+        builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
         // ÉTÅ[ÉrÉXÇÃìoò^
         builder.Services.AddScoped<IUserService, UserService>();
@@ -34,6 +36,7 @@ internal class Program
         builder.Services.AddScoped<IStatusService, StatusService>();
         builder.Services.AddScoped<IUserIconService, UserIconService>();
         builder.Services.AddScoped<IChannelIconMasterService, ChannelIconMasterService>();
+        builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
         builder.Services.AddControllers();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
