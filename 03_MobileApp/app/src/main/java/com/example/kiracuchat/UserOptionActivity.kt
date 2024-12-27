@@ -11,9 +11,14 @@ class UserOptionActivity : ComponentActivity()  {
         super.onCreate(savedInstanceState)
             setContentView(R.layout.user_option)
         val backBtn: Button = findViewById(R.id.back_btn)
+        val UserSetting: Button = findViewById(R.id.user_setting_btn)
+
 
         backBtn.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,channel::class.java))
+        }
+        UserSetting.setOnClickListener {
+            startActivity(Intent(this, UserSettingActivity::class.java))
         }
     }
 }

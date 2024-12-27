@@ -27,13 +27,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userOptionBtn: Button = findViewById(R.id.user_option_btn)
         val channelBtn: Button = findViewById(R.id.channel_btn)
         val logInBtn: Button = findViewById(R.id.Log_in_btn)
 
-        userOptionBtn.setOnClickListener {
-            startActivity(Intent(this, UserOptionActivity::class.java))
-        }
         channelBtn.setOnClickListener {
             startActivity(Intent(this, channel::class.java))
         }

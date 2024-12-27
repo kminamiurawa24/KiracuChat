@@ -203,6 +203,15 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
+            <ImageView
+                android:id="@+id/user_icon_option"
+                android:layout_width="59dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_launcher_foreground"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="6dp" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

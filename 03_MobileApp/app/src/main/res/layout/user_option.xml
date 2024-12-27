@@ -102,17 +102,18 @@
         app:layout_constraintVertical_bias="0.291" />
 
     <Button
-        android:id="@+id/edit_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#BEE9C7"
-        android:text="Edit"
+        android:id="@+id/user_setting_btn"
+        android:layout_width="101dp"
+        android:layout_height="52dp"
+        android:background="#C3AE8B"
+        android:text="User setting"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.427" />
+        app:layout_constraintVertical_bias="0.462" />
 
     <TextView
         android:id="@+id/online_icon"

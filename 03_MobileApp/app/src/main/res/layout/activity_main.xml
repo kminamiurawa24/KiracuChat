@@ -6,19 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="118dp"
-        android:text="response" />
-
-
-    <Button
-        android:id="@+id/user_option_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ユーザー設定" />
 
     <Button
         android:id="@+id/channel_btn"
