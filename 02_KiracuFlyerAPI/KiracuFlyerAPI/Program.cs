@@ -26,12 +26,14 @@ internal class Program
         builder.Services.AddScoped<IUserStatusRepository, UserStatusRepository>();
         builder.Services.AddScoped<IStatusRepository, StatusRepository>();
         builder.Services.AddScoped<IUserIconRepository, UserIconRepository>();
+        builder.Services.AddScoped<IChannelIconMasterRepository, ChannelIconMasterRepository>();
 
         // サービスの登録
         builder.Services.AddScoped<IUserService, UserService>();
         builder.Services.AddScoped<IUserStatusService, UserStatusService>();
         builder.Services.AddScoped<IStatusService, StatusService>();
         builder.Services.AddScoped<IUserIconService, UserIconService>();
+        builder.Services.AddScoped<IChannelIconMasterService, ChannelIconMasterService>();
         builder.Services.AddControllers();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
