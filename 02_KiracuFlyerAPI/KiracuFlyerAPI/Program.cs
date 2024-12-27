@@ -44,11 +44,8 @@ internal class Program
 
         app.UseSwagger();
         app.UseSwaggerUI();
-
         app.UseHttpsRedirection();
-
         app.UseAuthorization();
-
         app.MapControllers();
 
         app.Run();
